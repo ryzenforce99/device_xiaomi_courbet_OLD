@@ -20,16 +20,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit device configurations
 $(call inherit-product, device/xiaomi/courbet/device.mk)
 
-# Inherit common Ancient configurations
+# Inherit common ArcanaOS configurations
 $(call inherit-product, vendor/ancient/config/common_full_phone.mk)
+$(call inherit-product, vendor/aosp/config/telephony.mk)
+$(call inherit-product, vendor/aosp/config/arcana_props.mk)
 
-# Inherit some common AncientOS
-ANCIENT_OFFICIAL := true
+# Inherit some common ArcanaOS
+ARCANA_DEVICE := Courbet
+ARCANA_MAINTAINER := RyzenForce
+ARCANA_OFFICIAL := false
+WITH_GAPPS := true
+WITH_LAWNCHAIR := true
 TARGET_BOOT_ANIMATION_RES := 1080
 IS_PHONE := true
-TARGET_GAPPS_ARCH := arm64
+TARGET_SUPPORTS_BLUR := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
-PRODUCT_NAME := ancient_courbet
+PRODUCT_NAME := aosp_courbet
 PRODUCT_DEVICE := courbet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 11 Lite 4G
